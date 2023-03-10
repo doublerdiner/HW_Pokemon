@@ -10,15 +10,15 @@ const UrbanDictionary = ()=>{
     const [previous, setPrevious] = useState(0);
     const [definedTerm, setDefinedTerm] = useState("JavaScript");
 
-    async function fetchArticles(url = "https://api.urbandictionary.com/v0/define?term=Javascript"){
-        const res = await fetch(url);
+    async function fetchArticles(word = definedTerm){
+        const res = await fetch(`https://api.urbandictionary.com/v0/define?term=${word}`);
         const data = await res.json();
         setArticles(data.list);
         setSelected(data.list[0]);
     }
 
     useEffect(()=>{
-        fetchArticles();
+        fetchArticles(definedTerm);
     }, [])
 
     console.log(articles)
@@ -32,14 +32,17 @@ const UrbanDictionary = ()=>{
 
     const termChange = (word)=>{
         setDefinedTerm(word);
-        fetchArticles(`https://api.urbandictionary.com/v0/define?term=${word}`);
+        fetchArticles(word);
     };
 
     return(
         <>
         <h1>Urban Dictionary</h1>
-        <h2>Defined Term: {definedTerm} </h2>
-        <p>No Articles Found</p> 
+        <h2>Search Term: {definedTerm} </h2>
+        <form>
+            <input type="text" placeholder="Enter a search term"/>
+            <button type="submit">Submit</button>
+        </form>
         <Display selected={selected}/>
         <Button 
         text="Previous"
