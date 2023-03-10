@@ -1,10 +1,11 @@
 import './App.css';
+import UrbanDictionary from './containers/UrbanDictionary';
 
 function App() {
   return (
     <div className="centre">
       <div className="App">
-        <h1>hello</h1>
+        <UrbanDictionary/>
       </div>
     </div>
   );
