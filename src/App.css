@@ -9,3 +9,14 @@
   border: 5px solid black;
   border-radius: 25px;
 }
+
+.pokemonlist{
+  max-height: 70vh;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+li:hover{
+  background-color: aqua;
+  cursor: pointer;
+}

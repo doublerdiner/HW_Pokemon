@@ -1,11 +1,10 @@
 import './App.css';
-import Pokedex from './containers/Pokedex';
 
 function App() {
   return (
     <div className="centre">
       <div className="App">
-        <Pokedex/>
+        <h1>hello</h1>
       </div>
     </div>
   );
