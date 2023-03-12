@@ -80,7 +80,7 @@ const UrbanDictionary = ()=>{
 
     return(
         <>
-        <h1>Urban Dictionary</h1>
+        <h1>Urban Dictionary API</h1>
         <div className="bottom">
 
             <section className="left">
