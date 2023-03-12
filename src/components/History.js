@@ -1,8 +1,8 @@
 import React from "react";
 
-const History = ({history, deleteHistory})=>{
-    const historyItem = history.map((item) => {
-        return (<li>{item}<button>Delete</button></li>)})
+const History = ({history, deleteHistory, clickHistory})=>{
+    const historyItem = history.map((item, index) => {
+        return (<li key={index} onClick={()=>(clickHistory(item))}>{item}<button onClick={()=>{deleteHistory(item)}}>Delete</button></li>)})
 
     return(
         <>

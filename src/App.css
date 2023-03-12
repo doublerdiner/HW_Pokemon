@@ -2,21 +2,85 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 70vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(227, 227, 227);
+  min-height: 100vh;
+  min-width: 100vh;
 }
 
 .App {
-  border: 5px solid black;
+  min-height: 50rem;
+  width: 60rem;
+  border: 5px solid rgb(0, 0, 0);
   border-radius: 25px;
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
+  line-height: 2rem;
+  margin: 3rem;
+  color: rgb(0, 0, 0);
 }
 
 h1{
   text-align: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 1rem;
 }
 
 .bottom{
   display: flex;
+}
+
+.left{
+  padding-right: 1.5rem;
+  border-right: 1px solid black;
+  min-width: 15rem;
+}
+
+.right{
+  padding-left: 1.5rem;
+  
+}
+
+button{
+  border-radius: 10px;
+  padding: .5rem 1rem;
+  margin: 1rem 1rem;
+  background-color: rgb(0, 146, 236);
+  color: white;
+}
+button:hover{
+  cursor: pointer;
+  background-color: rgb(0, 114, 185);
+}
+button:disabled{
+  visibility: hidden;
+}
+
+
+
+input{
+  height: 1.5rem;
+  width: 10rem;
+}
+
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  display: flex;
+  flex-direction: row;
+  padding-left: 1.5rem;
+  justify-content: space-around;
+  align-items: center;
+}
+
+li:hover{
+  cursor: pointer;
+  background-color: rgb(160, 160, 160);;
+  border-radius: 10px;
+  
 }

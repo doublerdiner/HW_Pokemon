@@ -19,6 +19,8 @@ const UrbanDictionary = ()=>{
         if (data.list.length > 0){
         setArticles(data.list);
         setSelected(data.list[0]);
+        setNext(2);
+        setPrevious(0);
         document.getElementById("display").style.display = "block";
         document.getElementById("noresult").style.display = "none";
     } else{
@@ -64,37 +66,38 @@ const UrbanDictionary = ()=>{
     };
 
     const clearHistoryItem = (word)=>{
+        console.log("Function Started")
         const newHistory = history.filter((item)=>{
             return item !== word;
         })
         setHistory(newHistory);
     };
 
+    const clickHistory = (item)=>{
+        setDefinedTerm(item);
+        fetchArticles(item);
+    };
+
     return(
         <>
         <h1>Urban Dictionary</h1>
         <div className="bottom">
+
             <section className="left">
                 <h2>Search History</h2>
                 <Button 
                 text="Clear All History"
                 clickHandler={()=>(clearHistory())}
                 />
-                <History history={history} deleteHistory={clearHistoryItem}/>
-
+                <History history={history} deleteHistory={clearHistoryItem} clickHistory={clickHistory}/>
             </section>
+
             <section className="right">
                 <h2>Search Term: {definedTerm} </h2>
                 <form id="form" onSubmit={newSearch}>
                     <input type="text" placeholder="Enter a search term" onChange={handleInputChange}/>
                     <button type="submit">Submit</button>
                 </form>
-                <div id="display">
-                    <Display selected={selected}/>
-                </div>
-                <div id="noresult">
-                    <h3>No Results! Please search again...</h3>
-                </div>
                 <div className="buttons">
                     <Button 
                     text="Previous"
@@ -106,8 +109,15 @@ const UrbanDictionary = ()=>{
                     isDisabled={next === (articles.length + 1)}
                     clickHandler = {()=>(articleSelect(next))}
                     />
+                <div id="noresult">
+                    <h3>No Results! Please search again...</h3>
+                </div>
+                </div>
+                <div id="display">
+                    <Display selected={selected}/>
                 </div>
             </section>
+
         </div>
         </>
     )
