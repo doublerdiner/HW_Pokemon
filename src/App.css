@@ -8,4 +8,15 @@
 .App {
   border: 5px solid black;
   border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+h1{
+  text-align: center;
+}
+
+.bottom{
+  display: flex;
 }
